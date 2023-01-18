@@ -8,8 +8,7 @@ const quizSchema = Schema({
     image:
     {
         data: Buffer,
-        contentType: String,
-        required: true
+        contentType: String
     },
     duration: {
         type: Number,

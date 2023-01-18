@@ -3,7 +3,8 @@ const http = require('http')
 const dovenv = require('dotenv').config()
 const { errHandler } = require('./Middlewares/errHandler')
 const cors = require('cors')
-const userRoutes = require('../API/Routes/user')
+const userRoutes = require('./Routes/user')
+const dataRoutes = require('./Routes/data')
 const connectDb = require('./helpers/connectDb')
 connectDb()
 
@@ -16,7 +17,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 //Routes
-
+app.use('/api/data', dataRoutes)
 app.use('/api/user', userRoutes)
 
 // err middleware
