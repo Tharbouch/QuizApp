@@ -1,0 +1,58 @@
+.quizzesGround {
+    min-height: 100vh;
+    display: inline-flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 50px 0 0 55px;
+}
+
+.conatainer {
+    position: relative;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    width: 390px;
+    height: 250px;
+    background: #fff;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.conatainer:hover {
+    cursor: pointer;
+    background-color: var(--primary-color);
+    transition: .5s;
+}
+
+.conatainer:hover .image-container {
+    opacity: 0.4;
+}
+
+.conatainer:hover .description {
+    opacity: 0.4;
+}
+
+.conatainer .image-container {
+    position: relative;
+    display: flex;
+    text-align: center;
+    top: 2%;
+    height: 90.8px;
+    width: fit-content;
+    flex-direction: column;
+}
+
+.conatainer .image-container img {
+    width: auto;
+    height: 100%;
+    margin-bottom: 15px;
+}
+
+
+.conatainer .image-container label {
+    color: var(--dark-color);
+}
+
+.conatainer .description {
+    color: var(--dark-color);
+}
