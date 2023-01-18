@@ -1,0 +1,38 @@
+header {
+    height: 20%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+header nav {
+    display: flex;
+    gap: 16px;
+    place-items: center;
+    justify-content: end;
+    max-width: 1200px;
+    margin-right: 20px;
+}
+
+
+header h1 {
+    font-size: 40px;
+    line-height: 1.1;
+}
+
+a {
+    color: var(--light-color);
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+
+main {
+    padding: 15px;
+}
