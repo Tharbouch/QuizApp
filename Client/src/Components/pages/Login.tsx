@@ -1,20 +1,19 @@
 import { useContext, FormEvent, useRef, useState } from "react";
-import { UserContext } from '../Utils/userContext';
+import { UserContext } from '../../Utils/userContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../assets/Styles/Login.css'
+import '../../assets/Styles/Login.css'
+import Input from "../Input";
 
 
 export const Login = () => {
 
     const userContext = useContext(UserContext)
 
-    const emailRef = useRef(null)
     const [email, setEmail] = useState("")
 
     const [err, setErr] = useState("")
 
-    const passwordRef = useRef(null)
     const [password, setPassword] = useState("")
 
     const navigate = useNavigate()
@@ -30,7 +29,8 @@ export const Login = () => {
             userContext?.setAuth(response.data)
             navigate('/', { replace: true })
         }).catch((err) => {
-            setErr(err.response.data?.message)
+
+            err.response ? setErr(err.response.data?.message) : setErr(err.message)
         })
 
     }
@@ -42,16 +42,10 @@ export const Login = () => {
                 <form className="login-from" onSubmit={(e) => handelOnSubmit(e)} >
                     <span className="login-title">Log In</span>
                     {err !== "" && <span className="login-err">{err}</span>}
-                    <div className="input-field">
-                        <input type="email" ref={emailRef} onChange={(e) => setEmail(e.target.value)} required />
-                        <span></span>
-                        <label >Email</label>
-                    </div>
-                    <div className="input-field">
-                        <input type="password" ref={passwordRef} onChange={(e) => setPassword(e.target.value)} required />
-                        <span></span>
-                        <label >Password</label>
-                    </div>
+
+                    <Input classname="input-field" type="email" label="Email" handler={setEmail} />
+                    <Input classname="input-field" type="password" label="Password" handler={setPassword} />
+
                     <div className="button">
                         <button className="submitButton" type="submit" >Login</button>
                     </div>
