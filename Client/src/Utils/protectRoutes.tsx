@@ -2,13 +2,12 @@ import { Outlet, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from '../Utils/userContext';
 
-export const ProtectRoute = ({ children }: any) => {
+export const ProtectRoute = ({ children, allowed }: any) => {
     const userContext = useContext(UserContext)
 
 
     return (
-
-        !userContext?.auth ? <Navigate to='login' /> : <Outlet />
+        allowed.includes(userContext?.auth?.accessRole) ? <Outlet /> : !userContext?.auth ? <Navigate to='login' /> : <Outlet />
 
     );
 }

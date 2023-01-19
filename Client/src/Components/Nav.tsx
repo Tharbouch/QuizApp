@@ -33,7 +33,7 @@ export const NavBar = () => {
                         userContext?.auth.accessRole === "Professor" &&
                         <>
                             <NavLink to='' >quizzes</NavLink>
-                            <NavLink to='' >questions</NavLink>
+                            <NavLink to='/questions' >questions</NavLink>
                             <NavLink to='/login' onClick={handelOnClick}>Logout</NavLink>
                         </>
                     }
