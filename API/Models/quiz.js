@@ -26,7 +26,7 @@ const quizSchema = Schema({
             }
         }]
     },
-    createdBy: {
+    creator: {
         type: String,
         required: true
     }

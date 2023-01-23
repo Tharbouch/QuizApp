@@ -1,9 +1,13 @@
 const router = require('express').Router()
 
 const upload = require('../helpers/uploadPhoto')
-const controller = require('../Controllers/quizController')
+const quizController = require('../Controllers/quizController')
+const questionController = require('../Controllers/questionController')
 
-router.get('/quiz', controller.getQuiz)
-router.post('/quiz', upload.single("quizimage"), controller.addQuiz)
+router.get('/quiz', quizController.getQuiz)
+router.post('/quiz', upload.single("quizimage"), quizController.addQuiz)
+
+router.get('/question', questionController.getQuestions)
+router.post('/question', upload.single("questionimage"), questionController.addQuestion)
 
 module.exports = router
