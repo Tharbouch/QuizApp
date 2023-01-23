@@ -2,30 +2,28 @@ const { Schema, model } = require('mongoose')
 
 
 const questionSchema = Schema({
+    category: {
+        type: String
+    },
+    image:
+    {
+        data: Buffer,
+        contentType: String
+    },
     question: {
         type: String,
         required: true
     },
-    type: {
-        type: String,
-        required: true
-    },
-    level: {
-        type: String,
-        required: true
-    },
     answers: {
-        type: [{ answer: { type: String, required: true }, correct: { type: Boolean, required: true }, _id: false }],
+        type: [{ answer: { type: String, required: true }, isCorrect: { type: Boolean, required: true }, _id: false }],
         required: true
     },
-    cretedBy: {
+    creator: {
         type: String,
-    },
-    category: {
-        type: String
+        required: true
     }
 })
 
 const Question = model('question', questionSchema);
 
-module.exports = { Question, questionSchema };
+module.exports = Question 

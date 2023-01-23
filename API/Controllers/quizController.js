@@ -15,6 +15,8 @@ const getQuiz = (req, res, next) => {
 }
 
 const addQuiz = (req, res, next) => {
+
+
     let img = null
 
     try {
@@ -22,7 +24,7 @@ const addQuiz = (req, res, next) => {
         img = {
             img: {
                 data: fs.readFileSync(imagepath),
-                contentType: "image/png"
+                contentType: req.file.mimetype
             }
         }
     } catch (error) {
