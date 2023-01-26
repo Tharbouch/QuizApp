@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from '../../Utils/userContext';
 import { useNavigate } from 'react-router-dom';
 import { useAxios } from "../../Hooks/useAxios";
@@ -32,13 +32,13 @@ export const Home = () => {
         <>
             {error && alert(error)}
             {
-                !isLoading && !error && <div className="quizzesGround">
+                isLoading && !error ? <p>IS LOADING ....</p> : <div className="quizzesGround">
                     {response?.data.map((quiz: any) => {
                         const base64String = btoa(
                             String.fromCharCode(...new Uint8Array(quiz.image.data.data))
-                        );
+                        )
                         return <>
-                            <div className="conatainer" onClick={handelClick}>
+                            <div className="conatainer" onClick={handelClick} key={quiz}>
 
                                 <div className="image-container">
                                     <img id="quiz-image" src={`data:image/png;base64,${base64String}`} alt="quiz-image" />

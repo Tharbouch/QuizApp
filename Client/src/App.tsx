@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { Login } from './Components/pages/Login';
 import { Home } from './Components/pages/Home';
-import { NavBar } from './Components/Nav';
 import { RootLayout } from './Components/LayoutComponents';
 import { UserContextProvider } from './Utils/userContext'
 import { ProtectRoute } from './Utils/protectRoutes';
@@ -13,7 +12,6 @@ function App() {
 
   return (
     <UserContextProvider>
-      <NavBar />
       <Routes>
         <Route path='/' element={<RootLayout />} >
           <Route element={<ProtectRoute allowed={["Student", "Professor"]} />}>

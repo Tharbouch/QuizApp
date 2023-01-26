@@ -2,11 +2,17 @@
 import axios, { AxiosRequestConfig, AxiosResponse, AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
-axios.defaults.baseURL = "http://localhost:4000/api/";
+axios.defaults.baseURL = "http://localhost:4000/api";
 
-export const useAxios = (config: AxiosRequestConfig): [AxiosResponse | undefined, AxiosError | undefined, boolean, any] => {
+export const useAxios = (config: AxiosRequestConfig): [AxiosResponse | undefined, String | undefined, boolean, any] => {
+
+    type customeErrorResponse = {
+        message: String
+    }
+
+
     const [response, setResponse] = useState<AxiosResponse>();
-    const [error, setError] = useState<AxiosError>();
+    const [error, setError] = useState<String>();
     const [isLoading, setLoading] = useState(false)
     const [controller, setController] = useState<AbortController>();
 
@@ -20,20 +26,19 @@ export const useAxios = (config: AxiosRequestConfig): [AxiosResponse | undefined
             configuration.signal = abortionController.signal;
 
             const response = await axios.request(configuration)
-
-            setResponse(response);
+            setResponse(response)
         }
         catch (error) {
-
-            setError(error as AxiosError);
+            let customError = error as AxiosError<customeErrorResponse>
+            customError?.response ? setError(customError.response?.data.message) : setError(customError.message)
         }
         finally {
             setLoading(false)
         }
     }
 
-    const customAxios = () => {
-        axiosFetch(config)
+    const customAxios = async () => {
+        await axiosFetch(config)
     }
 
     useEffect(() => {

@@ -1,0 +1,29 @@
+.question-container {
+    width: 500px;
+    border: 3px solid black;
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    padding: 20px;
+}
+
+.question-area {
+    width: 100%;
+}
+
+.question-area {
+    white-space: pre-wrap
+}
+
+.image-space {
+    width: 100%;
+}
+
+.image-space img {
+    width: 100%;
+    height: fit-content;
+}
+
+
+.answer_wrap {
+    white-space: pre-line;
+}
