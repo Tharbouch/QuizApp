@@ -26,9 +26,6 @@ const Questions = () => {
         params: { creator: "Taha Harbouch" }
     })
 
-
-
-
     const handleAddCheckbox = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
         e.preventDefault()
         setCheckboxes([...checkboxes, { answer: newCheckboxLabel, isCorrect: false }]);
@@ -36,7 +33,7 @@ const Questions = () => {
     };
 
     const handleCheckboxChange = (index: any) => (event: any) => {
-        console.log(event)
+
         const newCheckboxes = [...checkboxes];
         newCheckboxes[index].isCorrect = event?.target?.checked;
         setCheckboxes(newCheckboxes);
@@ -66,7 +63,6 @@ const Questions = () => {
                     setCheckboxes([])
                     customAxios()
                 }
-                console.log(response)
             }).catch((error) => {
                 alert(error)
             })
@@ -78,8 +74,6 @@ const Questions = () => {
     }
 
 
-
-
     useEffect(() => {
         customAxios()
     }, [])
@@ -88,7 +82,7 @@ const Questions = () => {
 
         <>
             {!isLoading ?
-                <div className="containerQuestions">
+                <div className="edit-ground">
 
                     <div className="edit-container">
                         <form className="question-from" onSubmit={(e) => { handelOnSubmit(e) }} noValidate>
@@ -101,7 +95,7 @@ const Questions = () => {
                                 <input type="file" name="questionimage" className="upload-button" onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)} />
                             </div>
 
-                            <div className="checkBox-list">
+                            <div className="list-area">
                                 <p> Answers:</p>
                                 {checkboxes.map((checkbox, index) => (
                                     <div className="checkboxArea">
@@ -121,7 +115,7 @@ const Questions = () => {
 
                                 ))}
 
-                                <div className="add-checkbox">
+                                <div className="add-description">
 
                                     <div className="areafield">
                                         <textarea value={newCheckboxLabel} onChange={(e) => { setNewCheckboxLabel(e.target.value) }} required />
@@ -143,7 +137,7 @@ const Questions = () => {
 
                     </div>
 
-                    <QuestionsArea response={response} error={error} />
+                    <QuestionsArea response={response} error={error} handler={() => { }} />
                 </div>
                 :
                 <p>...Loading</p>

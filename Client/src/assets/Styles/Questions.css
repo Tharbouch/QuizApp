@@ -1,4 +1,4 @@
-.containerQuestions {
+.edit-ground {
     display: flex;
     justify-content: space-around;
 }
@@ -119,11 +119,11 @@ form .areafield {
     color: var(--dark-color);
 }
 
-.checkBox-list {
+.list-area {
     color: var(--dark-color);
 }
 
-.checkBox-list p {
+.list-area p {
     margin-bottom: 10px;
 }
 
@@ -154,7 +154,7 @@ form .areafield {
     background: rgb(229, 34, 34)
 }
 
-.add-checkbox {
+.add-description {
     display: flex;
     position: relative;
     flex-wrap: wrap;
@@ -164,7 +164,7 @@ form .areafield {
 }
 
 
-.add-checkbox .inputfield {
+.add-description .inputfield {
     margin: 0;
     margin-bottom: 10px;
 }
