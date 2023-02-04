@@ -38,7 +38,7 @@ export const Home = () => {
                             String.fromCharCode(...new Uint8Array(quiz.image.data.data))
                         )
                         return <>
-                            <div className="home-container" onClick={handelClick} key={quiz}>
+                            <div className="conatainer" onClick={handelClick} key={quiz}>
 
                                 <div className="image-container">
                                     <img id="quiz-image" src={`data:image/png;base64,${base64String}`} alt="quiz-image" />

@@ -37,7 +37,7 @@ export const Login = () => {
 
     return (
 
-        <div className="login-container ">
+        <div className="container">
             <div className="form-wrapper">
                 <form className="login-from" onSubmit={(e) => handelOnSubmit(e)} >
                     <span className="login-title">Log In</span>

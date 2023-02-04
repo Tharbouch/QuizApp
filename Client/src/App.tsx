@@ -7,7 +7,6 @@ import { ProtectRoute } from './Utils/protectRoutes';
 import './App.css'
 import NotFoud from './Components/pages/NotFound';
 import Questions from './Components/pages/Questions';
-import { Quiz } from './Components/pages/Quiz';
 
 function App() {
 
@@ -20,7 +19,6 @@ function App() {
           </Route>
           <Route element={<ProtectRoute allowed={["Professor"]} />}>
             <Route path='questions' element={<Questions />} />
-            <Route path='quiz' element={<Quiz />} />
           </Route>
           <Route path='login' element={<Login />} />
           <Route path='*' element={<NotFoud />} />
