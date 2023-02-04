@@ -32,7 +32,7 @@ export const RootLayout = () => {
                             {
                                 userContext?.auth.accessRole === "Professor" &&
                                 <>
-                                    <NavLink to='' >quizzes</NavLink>
+                                    <NavLink to='/quiz' >quiz</NavLink>
                                     <NavLink to='/questions' >questions</NavLink>
                                     <NavLink to='/login' onClick={handelOnClick}>Logout</NavLink>
                                 </>
