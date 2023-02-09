@@ -2,11 +2,11 @@ import React, { createContext, useState } from "react";
 
 
 export type UserInfo = {
-    userId: String,
-    name: String,
-    email: String,
-    token: String,
-    accessRole: String
+    userId: string,
+    name: string,
+    email: string,
+    token: string,
+    accessRole: string
 }
 
 type UserContextType = {
@@ -18,7 +18,7 @@ type UserContextProviderProps = {
     children: React.ReactNode
 }
 
-export const UserContext = createContext<UserContextType | null>({} as UserContextType)
+export const UserContext = createContext<UserContextType | null>(null)
 
 export const UserContextProvider = ({ children }: UserContextProviderProps) => {
     const [auth, setAuth] = useState<UserInfo | null>(null)

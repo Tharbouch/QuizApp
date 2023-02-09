@@ -44,7 +44,10 @@ export const Home = () => {
                                     <img id="quiz-image" src={`data:image/png;base64,${base64String}`} alt="quiz-image" />
                                     <label htmlFor="quiz-image">{quiz.name}</label>
                                 </div>
-                                <div className="description">
+                                <div className="level-container">
+                                    <span>{`Level: ${quiz.level}`}</span>
+                                </div>
+                                <div className="duration-container">
                                     <span>{`duration: ${quiz.duration}min`}</span>
                                 </div>
                             </div>

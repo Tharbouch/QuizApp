@@ -1,0 +1,35 @@
+.duration-area {
+    display: flex;
+}
+
+.duration-area div {
+    margin-right: 10px;
+}
+
+.duration-area p {
+    display: flex;
+    place-content: center;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 16px;
+    color: var(--dark-color);
+}
+
+.level-area {
+    display: flex;
+    margin: 40px 0 20px 0;
+}
+
+.level-area p {
+    color: var(--dark-color);
+    margin-right: 20px;
+}
+
+.level-area select {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    width: 200px;
+    color: var(--dark-color);
+}

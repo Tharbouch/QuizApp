@@ -20,17 +20,17 @@
 
 .conatainer:hover {
     cursor: pointer;
-    background-color: var(--primary-color);
+    background-color: rgb(208, 227, 243);
     transition: .5s;
 }
 
-.conatainer:hover .image-container {
+.conatainer:hover .image-container,
+.conatainer:hover .level-container,
+.conatainer:hover .duration-container {
     opacity: 0.4;
 }
 
-.conatainer:hover .description {
-    opacity: 0.4;
-}
+
 
 .conatainer .image-container {
     position: relative;
@@ -49,10 +49,10 @@
 }
 
 
-.conatainer .image-container label {
+.conatainer {
     color: var(--dark-color);
 }
 
-.conatainer .description {
-    color: var(--dark-color);
+.level-container {
+    margin-top: 30px;
 }

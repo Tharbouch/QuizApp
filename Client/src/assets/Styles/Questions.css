@@ -102,7 +102,7 @@ form .areafield {
 
 .areafield textarea:focus~label,
 .areafield textarea:valid~label {
-    top: -15px;
+    top: -20px;
     color: var(--dark-color);
 }
 
