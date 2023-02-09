@@ -10,21 +10,29 @@ const quizSchema = Schema({
         data: Buffer,
         contentType: String
     },
+    description: {
+        type: String,
+        required: true
+    },
+    questions: {
+        type: [{
+            id: {
+                type: String,
+                required: true
+            },
+            question: {
+                type: String,
+                required: true
+            }
+        }]
+    },
     duration: {
         type: Number,
         required: true
     },
-    studentsList: {
-        type: [{
-            name: {
-                type: String,
-                required: true
-            },
-            attempts: {
-                type: Number,
-                required: true
-            }
-        }]
+    level: {
+        type: String,
+        required: true
     },
     creator: {
         type: String,

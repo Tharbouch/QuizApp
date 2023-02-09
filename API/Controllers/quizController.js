@@ -15,7 +15,7 @@ const getQuiz = (req, res, next) => {
 }
 
 const addQuiz = (req, res, next) => {
-
+    console.log('text')
 
     let img = null
 
@@ -28,6 +28,7 @@ const addQuiz = (req, res, next) => {
             }
         }
     } catch (error) {
+        console.log(error)
         res.status(500)
         next(error)
     }
@@ -35,12 +36,16 @@ const addQuiz = (req, res, next) => {
     Quiz.create({
         name: req.body.name,
         image: img.img,
+        description: req.body.description,
+        questions: req.body.questions,
         duration: req.body.duration,
-        createdBy: req.body.createdBy
+        level: req.body.level,
+        creator: req.body.creator
     }).then((response) => {
         res.status(201)
             .json({ message: "success" })
     }).catch((err) => {
+        console.log(err)
         res.status(500)
         next(err)
     })
