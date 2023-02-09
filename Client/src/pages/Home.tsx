@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from '../../Utils/userContext';
+import { UserContext } from '../Utils/userContext';
 import { useNavigate } from 'react-router-dom';
-import { useAxios } from "../../Hooks/useAxios";
-import '../../assets/Styles/Home.css'
+import { useAxios } from "../Hooks/useAxios";
+import '../assets/Styles/Home.css'
 
 export const Home = () => {
     const userContext = useContext(UserContext)
@@ -33,12 +33,12 @@ export const Home = () => {
             {error && alert(error)}
             {
                 isLoading && !error ? <p>IS LOADING ....</p> : <div className="quizzesGround">
-                    {response?.data.map((quiz: any) => {
+                    {response?.data.map((quiz: any, index: any) => {
                         const base64String = btoa(
                             String.fromCharCode(...new Uint8Array(quiz.image.data.data))
                         )
                         return <>
-                            <div className="conatainer" onClick={handelClick} key={quiz}>
+                            <div className="conatainer" onClick={handelClick} key={index}>
 
                                 <div className="image-container">
                                     <img id="quiz-image" src={`data:image/png;base64,${base64String}`} alt="quiz-image" />

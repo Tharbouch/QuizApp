@@ -1,17 +1,35 @@
 .question-container {
     width: 500px;
+    height: fit-content;
     border: 3px solid black;
     color: rgb(0, 0, 0);
     background-color: #fff;
     padding: 20px;
 }
 
-.question-area {
+.category-container {
+    margin-bottom: 10px;
+}
+
+.title-container:hover {
+    cursor: pointer;
+}
+
+.title-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+
+.questions-area {
     width: 100%;
+    white-space: pre-wrap;
 }
 
 .question-area {
-    white-space: pre-wrap
+    border-bottom: 2px solid rgb(201, 198, 198);
+    margin-bottom: 5px;
 }
 
 .image-space {

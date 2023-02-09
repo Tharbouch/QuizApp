@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
-import { Login } from './Components/pages/Login';
-import { Home } from './Components/pages/Home';
+import { Login } from './pages/Login';
+import { Home } from './pages/Home';
 import { RootLayout } from './Components/LayoutComponents';
 import { UserContextProvider } from './Utils/userContext'
 import { ProtectRoute } from './Utils/protectRoutes';
 import './App.css'
-import NotFoud from './Components/pages/NotFound';
-import Questions from './Components/pages/Questions';
-import { Quiz } from './Components/pages/Quiz';
+import NotFoud from './pages/NotFound';
+import Questions from './pages/Questions';
+import { Quiz } from './pages/Quiz';
 
 function App() {
 

@@ -1,10 +1,13 @@
 import React, { FormEvent, MouseEvent, useContext, useEffect, useState } from "react";
-import { UserContext } from '../../Utils/userContext';
-import { useAxios } from "../../Hooks/useAxios";
-import '../../assets/Styles/Questions.css'
-import Input from "../Input";
+import { UserContext } from '../Utils/userContext';
+import { useAxios } from "../Hooks/useAxios";
+import '../assets/Styles/Questions.css'
+import Input from "../Components/Input";
 import axios from "axios";
-import { QuestionsArea } from "../questionsArea";
+import { QuestionsArea } from "../Components/questionsArea";
+import ImageInput from "../Components/ImageInput";
+import TextArea from "../Components/TextArea";
+import SubmitButton from "../Components/SubmitButton";
 
 const Questions = () => {
     type checkboxContent = {
@@ -90,10 +93,7 @@ const Questions = () => {
                             <Input classname="inputfield" type="text" label="Category" value={category} handler={setCategory} />
                             <Input classname="inputfield" type="text" label="Question" value={question} handler={setQuestion} />
 
-                            <div className="image-input">
-                                <label >Image (optionnel):</label>
-                                <input type="file" name="questionimage" className="upload-button" onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)} />
-                            </div>
+                            <ImageInput handeler={setImage} required={false} />
 
                             <div className="list-area">
                                 <p> Answers:</p>
@@ -117,11 +117,8 @@ const Questions = () => {
 
                                 <div className="add-description">
 
-                                    <div className="areafield">
-                                        <textarea value={newCheckboxLabel} onChange={(e) => { setNewCheckboxLabel(e.target.value) }} required />
+                                    <TextArea label="add Answer" value={newCheckboxLabel} handler={setNewCheckboxLabel} />
 
-                                        <label >add Answer</label>
-                                    </div>
                                     <div className="button-container">
                                         <button className="addButton" onClick={(e) => { handleAddCheckbox(e) }}>Add</button>
                                     </div>
@@ -129,15 +126,13 @@ const Questions = () => {
                                 </div>
 
                             </div>
-                            <div className="button-container btnsubmit">
-                                <button className="submitButton" type="submit">Submit</button>
-                            </div>
+                            <SubmitButton />
 
                         </form>
 
                     </div>
 
-                    <QuestionsArea response={response} error={error} handler={() => { }} />
+                    {response && <QuestionsArea response={response} error={error} handler={() => { }} />}
                 </div>
                 :
                 <p>...Loading</p>

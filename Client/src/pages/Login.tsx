@@ -1,9 +1,9 @@
 import { useContext, FormEvent, useRef, useState } from "react";
-import { UserContext } from '../../Utils/userContext';
+import { UserContext } from '../Utils/userContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../../assets/Styles/Login.css'
-import Input from "../Input";
+import '../assets/Styles/Login.css'
+import Input from "../Components/Input";
 
 
 export const Login = () => {

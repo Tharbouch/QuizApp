@@ -1,11 +1,13 @@
 import React, { FormEvent, MouseEvent, useContext, useEffect, useState } from "react";
-import { UserContext } from '../../Utils/userContext';
+import { UserContext } from '../Utils/userContext';
 import { useNavigate } from 'react-router-dom';
-import { useAxios } from "../../Hooks/useAxios";
-import Input from "../Input";
+import { useAxios } from "../Hooks/useAxios";
+import Input from "../Components/Input";
 import axios from "axios";
-import { QuestionsArea } from "../questionsArea";
-import '../../assets/Styles/Quiz.css'
+import { QuestionsArea } from "../Components/questionsArea";
+import '../assets/Styles/Quiz.css'
+import TextArea from "../Components/TextArea";
+import SubmitButton from "../Components/SubmitButton";
 
 export const Quiz = () => {
 
@@ -74,15 +76,7 @@ export const Quiz = () => {
                         <input type="file" name="questionimage" className="upload-button" onChange={(e) => setImage(e.target.files ? e.target.files[0] : null)} />
                     </div>
 
-                    <div className="add-description">
-
-                        <div className="areafield">
-                            <textarea onChange={(e) => { setDescription(e.target.value) }} required />
-
-                            <label >Description</label>
-                        </div>
-
-                    </div>
+                    <TextArea label="Description" value={null} handler={setDescription} />
 
                     <div className="duration-area">
                         <div>
@@ -92,19 +86,24 @@ export const Quiz = () => {
                     </div>
 
 
-                    {<div className="list-area">
-                        <p>Questions:</p>
-                        {
-                            questions?.map((question: any, index: any) => {
-                                return <div key={index}>
-                                    <p>{question.question}</p>
-                                    <div className="button-container">
-                                        <button className="delete-button" onClick={(e) => handleDelete(index)}>Delete</button>
-                                    </div>
-                                </div>
-                            })
-                        }
-                    </div>}
+                    {
+                        <div className="list-area">
+                            <p>Questions:</p>
+                            {
+                                questions?.map(
+                                    (question: any, index: any) => {
+                                        return (
+                                            <div key={index}>
+                                                <p>{question.question}</p>
+                                                <div className="button-container">
+                                                    <button className="delete-button" onClick={(e) => handleDelete(index)}>Delete</button>
+                                                </div>
+                                            </div>
+                                        )
+                                    })
+                            }
+                        </div>
+                    }
 
                     <div className="level-area">
                         <p>Level : </p>
@@ -114,14 +113,12 @@ export const Quiz = () => {
                             <option value="Advanced">Advanced</option>
                         </select>
                     </div>
-                    <div className="button-container btnsubmit">
-                        <button className="submitButton" type="submit">Submit</button>
-                    </div>
+                    <SubmitButton />
 
                 </form>
 
             </div>
-            <QuestionsArea response={response} error={error} handler={updateQuestionsList} />
+            {response && <QuestionsArea response={response} error={error} handler={updateQuestionsList} />}
         </div>
     );
 }
