@@ -26,7 +26,7 @@ const Questions = () => {
         url: '/data/question',
         method: 'get',
         headers: {},
-        params: { creator: "Taha Harbouch" }
+        params: { creator: userContext?.auth?.name }
     })
 
     const handleAddCheckbox = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
@@ -61,7 +61,7 @@ const Questions = () => {
             image && formData.append("questionimage", image)
             formData.append("question", question)
             formData.append("answers", JSON.stringify(checkboxes))
-            userContext?.auth?.userId && formData.append("createdBy", "Taha Harbouch")
+            formData.append("creator", userContext?.auth?.name as string)
 
             axios.post('http://localhost:4000/api/data/question', formData, {
                 headers: { "Content-Type": "multipart/form-data", "Accept": "*/*, multipart/form-data" }
