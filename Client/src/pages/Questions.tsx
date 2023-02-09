@@ -46,6 +46,13 @@ const Questions = () => {
         setCheckboxes(checkboxes.filter((_, i) => i !== index));
     }
 
+    const pickQuestion = (question: any) => {
+        setCategory(question.category)
+        setQuestion(question.question)
+        question.image ? setImage(question.image) : setImage(null)
+        setCheckboxes(question.answers)
+    }
+
     const handelOnSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (checkboxes.some(answer => answer.isCorrect === true)) {
@@ -132,7 +139,7 @@ const Questions = () => {
 
                     </div>
 
-                    {response && <QuestionsArea response={response} error={error} handler={() => { }} />}
+                    {response && <QuestionsArea response={response} error={error} handler={pickQuestion} />}
                 </div>
                 :
                 <p>...Loading</p>

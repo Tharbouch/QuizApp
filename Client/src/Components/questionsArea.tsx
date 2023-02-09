@@ -38,9 +38,19 @@ export const QuestionsArea = ({ response, error, handler }: any) => {
                                         {
                                             response?.data[category].map(
                                                 (question: any, index: any) => {
+
                                                     return (
                                                         <div className='question-area' key={index}>
                                                             <div onClick={() => { handelOnClick(question) }}>{question.question}</div>
+                                                            {
+                                                                question.image &&
+                                                                <div className='image-space '>
+                                                                    <img
+                                                                        src={
+                                                                            `data:image/png;base64, ${btoa(String.fromCharCode(...new Uint8Array(question.image.data.data)))}`
+                                                                        } alt="question-image" />
+                                                                </div>
+                                                            }
                                                             <ul>
                                                                 {question.answers.map(
                                                                     (answer: any) => {

@@ -32,7 +32,7 @@ export const Home = () => {
         <>
             {error && alert(error)}
             {
-                isLoading && !error ? <p>IS LOADING ....</p> : <div className="quizzesGround">
+                isLoading && !error ? <p>LOADING ....</p> : <div className="quizzesGround">
                     {response?.data.map((quiz: any, index: any) => {
                         const base64String = btoa(
                             String.fromCharCode(...new Uint8Array(quiz.image.data.data))
